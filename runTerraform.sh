@@ -8,10 +8,10 @@ FILE_NAME=terraform_0.7.4_linux_amd64.zip
 # Extract previous state
 echo -e "\n*** extracting previous state for this job ***"
 get_previous_statefile() {
-  local previous_statefile_location="/build/previousState/tfDeploy.env"
+  local previous_statefile_location="/build/previousState/terraform.tfstate"
   if [ -f "$previous_statefile_location" ]; then
-    . $previous_statefile_location
-    echo 'restored '$(compgen -A variable | wc -l)' environment variables'
+    cp $previous_statefile_location $(pwd)
+    echo 'restored previous statefile'
   else
     echo "no previous statefile exists"
   fi
@@ -66,3 +66,14 @@ provision_infra() {
   terraform apply -var aws_access_key_id=$AWS_ACCESS_KEY_ID -var aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
 }
 provision_infra
+
+# Save state
+echo -e "\n*** saving state ***"
+createOutState() {
+  STATEFILE_LOCATION=/build/state/
+  cp terraform.tfstate $STATEFILE_LOCATION
+}
+createOutState
+
+# Processing complete
+echo -e "\n*** processing complete - deployDDC_DEV.sh ***"
