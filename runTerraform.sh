@@ -1,9 +1,16 @@
 #! /bin/bash
 
 # Install tools
-sudo apt-get update && apt-get install curl jq unzip
+sudo apt-get update && apt-get install wget jq unzip
 
-FILE_NAME=terraform_0.7.4_linux_amd64.zip
+# Install Terraform
+echo -e "\n*** installing Terraform ***"
+install_terraform() {
+  local FILE_NAME=terraform_0.7.4_linux_amd64.zip
+  wget https://releases.hashicorp.com/terraform/0.7.4/$FILE_NAME
+  unzip $FILE_NAME -d .
+}
+install_terraform
 
 # Extract previous state
 echo -e "\n*** extracting previous state for this job ***"
@@ -51,14 +58,6 @@ get_params() {
   fi
 }
 get_params
-
-# Install Terraform
-echo -e "\n*** installing Terraform ***"
-install_terraform() {
-  curl https://releases.hashicorp.com/terraform/0.7.4/$FILE_NAME
-  unzip $FILE_NAME -d .
-}
-install_terraform
 
 # Provision infrastructure via scripts
 echo -e "\n*** provisioning infrastructure on AWS ***"
