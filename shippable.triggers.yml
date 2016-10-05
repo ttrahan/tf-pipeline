@@ -1,10 +1,5 @@
 triggers:
-  - name: trigger-sample-test
+  - name: trigger-tf-deploy
     type: trigger
     version:
-      message: 'trigger for TEST'
-
-  - name: trigger-sample-prod
-    type: trigger
-    version:
-      message: 'trigger for PROD'
+      message: 'trigger for Terraform scripts'

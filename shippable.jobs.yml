@@ -6,5 +6,7 @@ jobs:
     steps:
       - IN: integration-aws
       - IN: repo-tfScripts
+      - IN: params-tfScripts
+      - IN: trigger-tf-deploy
       - TASK:
-        - script: . /build/IN/repo-tfScripts/gitRepo/terraform.tf
+        - script: cd /build/IN/repo-tfScripts/gitRepo/runTerraform.sh
