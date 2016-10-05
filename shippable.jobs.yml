@@ -1,0 +1,10 @@
+jobs:
+
+# Shell script infrastructure deployment to AWS
+  - name: tfDeploy
+    type: runSh
+    steps:
+      - IN: integration-aws
+      - IN: repo-tfScripts
+      - TASK:
+        - script: . /build/IN/repo-tfScripts/gitRepo/terraform.tf

@@ -1,0 +1,10 @@
+triggers:
+  - name: trigger-sample-test
+    type: trigger
+    version:
+      message: 'trigger for TEST'
+
+  - name: trigger-sample-prod
+    type: trigger
+    version:
+      message: 'trigger for PROD'
