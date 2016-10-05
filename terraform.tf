@@ -1,5 +1,7 @@
 # ========================ECS Instances=======================
 
+provider "aws" {}
+
 # EC2 instances
 resource "aws_instance" "sampleInstances" {
   count = 2
