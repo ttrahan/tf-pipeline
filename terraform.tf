@@ -1,9 +1,5 @@
 # ========================ECS Instances=======================
 
-provider "aws" {
-    region = "us-east-1"
-}
-
 # EC2 instances
 resource "aws_instance" "sampleInstances" {
   count = 2
