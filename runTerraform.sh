@@ -64,7 +64,7 @@ get_params
 # Provision infrastructure via scripts
 echo -e "\n*** provisioning infrastructure on AWS ***"
 provision_infra() {
-  terraform apply -var aws_access_key_id=$AWS_ACCESS_KEY_ID -var aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
+  /build/terraform apply -var aws_access_key_id=$AWS_ACCESS_KEY_ID -var aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
 }
 provision_infra
 
