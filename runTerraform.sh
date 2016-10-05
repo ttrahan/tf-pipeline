@@ -10,7 +10,7 @@ install_terraform() {
   wget https://releases.hashicorp.com/terraform/0.7.4/$FILE_NAME
   pwd
   unzip $FILE_NAME -d $(pwd)
-  export PATH=/build/terraform:$PATH
+  export PATH=$PATH:/build/terraform
   terraform -v
 }
 install_terraform
