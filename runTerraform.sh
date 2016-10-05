@@ -8,7 +8,9 @@ echo -e "\n*** installing Terraform ***"
 install_terraform() {
   local FILE_NAME=terraform_0.7.4_linux_amd64.zip
   wget https://releases.hashicorp.com/terraform/0.7.4/$FILE_NAME
-  unzip $FILE_NAME -d .
+  pwd
+  unzip $FILE_NAME -d $(pwd)
+  $(pwd)/terraform -v
 }
 install_terraform
 
