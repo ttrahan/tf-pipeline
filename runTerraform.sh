@@ -82,4 +82,4 @@ createOutState() {
 createOutState
 
 # Processing complete
-echo -e "\n*** processing complete - deployDDC_DEV.sh ***"
+echo -e "\n*** processing complete - ${BASH_SOURCE[0]} ***"
