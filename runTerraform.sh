@@ -1,9 +1,9 @@
 #! /bin/bash
 
 # Install tools
+echo -e "\n*** installing Ubuntu tools ***"
 sudo apt-get update && apt-get install wget jq unzip
 
-# Install Terraform
 echo -e "\n*** installing Terraform ***"
 install_terraform() {
   local FILE_NAME=terraform_0.7.4_linux_amd64.zip
