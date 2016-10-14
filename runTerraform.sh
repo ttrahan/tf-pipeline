@@ -30,12 +30,12 @@ get_previous_statefile
 
 # Extract integration data
 echo -e "\n*** extracting AWS integration information ***"
+# Load the integration values into environment variables for aws_access_key_id
+# and aws_secret_access_key
 get_aws_integration() {
   local INTEGRATION_FILE="./IN/integration-aws/integration.env"
   if [ -f "$INTEGRATION_FILE" ]; then
     . $INTEGRATION_FILE
-    AWS_ACCESS_KEY_ID=$aws_access_key_id
-    AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
     echo "loaded integration file"
   else
     echo "no integration file exists"
