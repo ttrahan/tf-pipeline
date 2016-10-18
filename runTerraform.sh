@@ -30,8 +30,7 @@ get_previous_statefile
 
 # Extract integration data
 echo -e "\n*** extracting AWS integration information ***"
-# Load the integration values into environment variables for aws_access_key_id
-# and aws_secret_access_key
+# Load integration values into env variables for aws_access_key_id, aws_secret_access_key
 get_aws_integration() {
   local INTEGRATION_FILE="./IN/integration-aws/integration.env"
   if [ -f "$INTEGRATION_FILE" ]; then
@@ -66,8 +65,8 @@ get_params
 echo -e "\n*** provisioning infrastructure on AWS ***"
 provision_infra() {
   cd /build/IN/repo-tfScripts/gitRepo
-  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-  export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+  export AWS_ACCESS_KEY_ID=$aws_access_key_id
+  export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
   export AWS_DEFAULT_REGION=$REGION
   terraform apply
 }
