@@ -10,3 +10,7 @@ jobs:
       - IN: trigger-tf-deploy
       - TASK:
         - script: . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh
+      - on_success:
+        - . /saveState.sh
+      - on_failure:
+        - . /saveState.sh
