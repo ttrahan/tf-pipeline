@@ -4,12 +4,12 @@ jobs:
   - name: tfDeploy
     type: runSh
     steps:
-      - IN: integration-aws
       - IN: repo-tfScripts
       - IN: params-tfScripts
+      - IN: integration-aws
       - IN: trigger-tf-deploy
       - TASK:
-        - script: . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh
+        - script: . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh repo-tfScripts params-tfScripts integration-aws
       - on_success:
         - . /saveState.sh
       - on_failure:
