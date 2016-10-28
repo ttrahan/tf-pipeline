@@ -3,7 +3,10 @@
 # Save state
 echo -e "\n*** saving state ***"
 createOutState() {
-  STATEFILE_LOCATION=/build/state/
-  cp terraform.tfstate $STATEFILE_LOCATION
+  STATEFILES_TO_SAVE=( terraform.tfstate )
+  STATEFILE_SAVE_LOCATION=/build/state/
+  for f in "${STATEFILES_TO_SAVE[@]}"; do
+   cp $f $STATEFILE_SAVE_LOCATION
+  done
 }
 createOutState

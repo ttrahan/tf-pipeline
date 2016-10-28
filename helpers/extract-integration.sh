@@ -1,6 +1,7 @@
 #! /bin/bash
 
 # Extract integration data
+# pass in parameter with name of integration resource
 echo -e "\n*** extracting integration information ***"
 get_aws_integration() {
   local INTEGRATION_FILE="./IN/$1/integration.env"
