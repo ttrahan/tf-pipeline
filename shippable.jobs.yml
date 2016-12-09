@@ -10,9 +10,8 @@ jobs:
       - IN: trigger-tf-deploy
       - TASK:
         - script: echo "provisioning infrastructure on AWS via Terraform"
+        - script: . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh repo-tfScripts params-tfScripts integration-aws
       - on_success:
-        - . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh repo-tfScripts params-tfScripts integration-aws
         - . /saveState.sh
       - on_failure:
-        . /build/IN/repo-tfScripts/gitRepo/runTerraform.sh repo-tfScripts params-tfScripts integration-aws
         - . /saveState.sh
